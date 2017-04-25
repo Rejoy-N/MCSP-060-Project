@@ -1,0 +1,446 @@
+﻿1. INTRODUCTION / OBJECTIVES        2
+1.1. Background        2
+1.2. Purpose and Motivation        3
+1.3. Objectives        3
+1.4. Project Category        4
+2. SYSTEM ANALYSIS        4
+2.1. Identification of Need        4
+2.2. Preliminary Investigation        4
+2.3. Feasibility Study        4
+2.4. Project Planning        4
+2.5. Project Scheduling        5
+2.6. Software Requirement Specification (SRS)        5
+2.7. Software Engineering Paradigm applied        5
+2.8. Data Model and Diagrams        5
+3. SYSTEM DESIGN        5
+3.1. Modularisation details        6
+3.2. Data integrity and constraints        6
+3.3. Database design / Procedural Design / Object Oriented Design        6
+3.4. User Interface Design        6
+4. CODING        6
+4.1. Complete Project Coding        6
+4.2. Comments and Description        6
+4.3. Standardization of the coding / Code Efficiency        6
+4.4. Error Handling        6
+4.5. Parameters calling / passing        6
+4.6. Validation checks        6
+4.7. Testing        6
+4.8. Testing Techniques and Testing strategies used        6
+4.9. Debugging and Code improvement        6
+5. SYSTEM SECURITY MEASURES        6
+5.1. Database / data security        6
+5.2. Creation of User Profiles and access rights        6
+6. COST ESTIMATION OF THE PROJECT        6
+7. REPORTS        6
+8. PERT CHART / GANTT CHART        6
+9. FUTURE SCOPE AND FURTHER ENHANCEMENT OF THE PROJECT        6
+10. BIBLIOGRAPHY        6
+11. APPENDICES        6
+12. GLOSSARY        6
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1. INTRODUCTION / OBJECTIVES
+
+
+Electronic Commerce commonly written as E-commerce or ecommerce is the trading or facilitation of trading using computer network such as Internet or Social Networks. Ecommerce draws on technologies like mobile commerce, Electronics Funds Transfer, Supply Chain Management, Internet Marketing, Online Transaction Processing, Electronic Data Interchange (EDI), Inventory Management Systems and automated data collection systems. Modern electronic commerce typically uses the World Wide Web for at least one part of the transaction’s life cycle though it may also use other technologies like email. 
+
+
+        Online Shopping is a form of electronic commerce which allows consumers to directly buy goods and services from a seller over the internet using a web browser. Consumers find a product of interest by visiting the website of the retailer directly or by searching among alternative vendors using a shopping search engine which displays the same product’s availability and pricing at different vendors. Customers can shop online using a range of different computers and devices including desktop computers, laptops, tablet computers and smartphones.
+
+
+
+
+1.1. Background
+
+
+ An online shop evokes the physical analogy of buying products and services at regular “bricks-and-mortar” retailer or shopping center; the process is called business-to-consumer (B2C) online shopping. A typical online store enables the customer to browse the firm’s range of products and services, view photos or images of the product along with the information about the product specification, features and prices.
+
+
+        Online stores typically enable shoppers to use “search” features to find specific models, Brands or Items. Online customers must have valid access to the internet and a valid method of payment in order to complete a transaction, such as a credit card, an interac-enabled debit card, or a service such as Paypal. For physical products (e.g., paperback books or clothes), the e-tailer ships the products to the customer; for digital products, such as digital audio files of songs or software, the e-tailer typically sends the file to the customer over the Internet. The largest of these online retailing corporations are Alibaba, Amazon.com and eBay.    
+
+
+        English entrepreneur Michael Aldrich was a pioneer of online shopping in 1979[1]. His system connected a modified domestic TV to a real-time transaction processing computer  via a domestic telephone line. The first World Wide Web server and browser, created by Tim Berners-Lee in 1990, opened for commercial use in 1991. Thereafter, subsequent technological innovations emerged in 1994: online banking, the opening of an online pizza shop by Pizza Hut, Netscape SSl v2 encryption standard for secure data transfer and Intershop’s first  Online shopping system. The first retail transaction over the Web was either by NetMarket or internet Shopping Network in 1994. Immediately after, Amazon.co launched its online shopping site in 1995 and eBay was also introduced in 1995. Alibaba’s sites Taobao and Tmall were launched in 2003 and 2003 respectively.
+
+
+        Mobile Phone online buying platforms can be broadly classified into 2 types 
+* Owned by Retailer to sell own products
+* Marketplace, which allows various merchants to showcase and sell their products. The retailer only manages the marketplace.
+
+
+        This project describes a minimal implementation of a platform which the retailer can use to sell own products i.e. the retailer is accountable and responsible for the product inventory.
+
+
+1.2. Purpose and Motivation       
+
+
+The main purpose of this project is to create an online store to buy mobile phones. The site will allow users to search mobile phones based on a set of features. Users can add selected products to a shopping cart and checkout by making payment. Users will receive an order copy of their invoice.
+
+
+        The retailer website will be managed by an Admin. Admin will have additional functionality such as managing product catalogue and generating reports. 
+
+
+        Motivation to work on this project includes
+* Working on a project in the Retail domain
+* To gain knowledge of the working of a good user friendly website that facilitates online transactions using a database
+* Interest in technologies such as GOLang, Javascript, HTML, CSS and SQL for web development
+* Explore data analytics that can be implemented using GOLang
+
+
+
+
+
+
+1.3. Objectives
+
+
+The Key objectives of the Project include
+* Implementation of an Admin module for managing a website facilitating buying of mobile phones using online transactions.
+* Develop and host a website which allows users to search and explore mobile phones.
+* Implement the shopping cart feature for the site that allows users to add selected products and tag it to a single order
+* Implement the online payment module (Credit Cards Only)
+* Explore technologies such as GOLang, Javascript, HTML, CSS and SQL for web development
+* Explore data analytics that can be implemented using GOLang
+
+
+
+
+
+
+1.4. Project Category
+
+
+This project can be categorised as a web development project that uses concepts of Internet technologies and web design, Web security and RDBMS. Though GOLang is not an OOPs language, OOPs has been achieved by making use of interfaces allowed in GOLang. Network security has also been implemented for the website using TLS ( Transport Layer Security)
+
+
+
+
+                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2. SYSTEM ANALYSIS
+
+
+
+
+2.1. Identification of Need
+
+
+Small scale retailers or start-up retailers in the mobile phone category would like to get their website up and running with a minimum investment in hardware and technology. The technology should be chosen in a way that allows to scale up later if required.
+        Large retailer may want to look at alternative technologies that make possible to lower development time and cost translating to better Project Management and increased efficiency.
+        Mobile Phones is an indicative category. The Online selling platform can be deployed for the purpose of selling almost any kind of product categories and services online. Mobile Phone Category has been chosen for this project due to the limited and universal well-understood feature set of the products of this category that allows to describe the project implementation without delving too much into the business aspects of the products.
+
+
+
+
+
+
+
+
+
+
+2.2. Preliminary Investigation
+
+
+India was one of the fastest growing retail e-commerce markets in 2015, growing at the rate of 129.5 per cent Y-o-Y.  Declining broadband subscription prices and the launch of 4G services has become the driving forces of e-commerce in the country. India will see more people come online than any other country in the next 15 years. With the penetration of digital devices and social media in the interiors of the country, online sellers have been presented with an unprecedented opportunity of growth, becoming extremely attractive to investors. E-commerce is expected to acquire 4.8% market share in total retail sales by 2019.
+        Among e-tail categories, mobile phone and mobile accessories continue to be the top contributor to the overall pie. [2]
+        Retailers would be willing to invest in technology and even maintain it in-house provided it is low-cost , easy to maintain and of course effective in serving their business needs. This allows retailers to manage their own product catalogue, respond to market dynamics by carrying out promotional campaigns, manage the look and feel of their website and quickly go-live and roll-out the changes. Though all of this could also be achieved through an intermediate service provider, the retailer in that case wouldn’t be able to manage costs and time as they would like to.
+http://www.indiaretailing.com/2016/08/30/retail/online-shopping-trends-facts-figures-on-indian-e-comm-sector
+
+
+
+
+
+
+2.3. Feasibility Study
+
+
+The objective of a feasibility study is not to solve the problem to to acquire a sense of its scope. This project does not aim to build a full scale website that is ready for industry deployment. The project aims to explore web development using GOlang by creation of an online mobile store. The full scale implementation of the project is limited by time, resource and cost constraints and is in fact not really necessary for an academic project of this kind.
+        The scope of the project shall be limited to
+* User Registration and Sign-on
+* Manage Products Catalogue
+* Order Management
+   * Shopping Cart
+   * Place Order
+   * Cancel Order
+* Payment Gateway Integration
+* Notifications
+* Analytics & Reports
+
+
+        A good e-commerce site should present the following factors to users for better usability
+* Simple navigation from home page to information and order links for specific products
+* Obvious shopping links or buttons
+* Effective categorical Organization of products
+* Easy scanning and selecting items on list.
+* Consistent layout of product information
+* Minimal or effective security notification or messages
+* Knowing when an item was saved or not saved in the shopping cart
+
+
+        To deploy a website with the basic benchmarks as stated above the following tools, platforms, hardware and software were used.
+
+
+        The development environment was set up on a i686 computer loaded with a 32-bit Linux operating system. The host environment shall be the same i686 computer with the 32-bit Linux operating system i.e., the development server and the host server are one and the same machine.
+
+
+Table 1: Software & Hardware Requirements
+Sr. No
+	Tools & Technologies
+	Description
+	1.
+	Go ver 1.7 linux/386
+	Tool for managing Go source code.
+Go ( also referred to as Golang) is an open source systems programming language developed at Google
+	2.
+	net/http package
+	Package http of Go provides http client and server implementations
+	3.
+	SQLite3 Database
+	SQLite is a self-contained high-reliability, full-featured, public-domain, SQL database engine. 
+	4.
+	SQLite Manager
+	SQLite Manager is a Database Management System for SQLite database and is available as a firefox addon that can be used in the browser.
+	5.
+	Emacs ver. 24.3
+	Development Environment
+	6.
+	Geany ver 1.22
+	A lightweight IDE with support for HTML, CSS, Javascript and JQuery
+	7
+	go-mode
+	Emacs package for Golang
+	8
+	Javascript
+	Javascript is a high-level, dynamic, untyped and interpreted programming language for front-end web design
+	9
+	JQuery ver 1.11.3
+	JQuery is a cross-platform javascript library designed to simplify the client side scripting of HTML
+	
+
+	HTML 5
+	HTML 5 is the markup language used for structuring and designing content on the world wide web
+	
+
+	CSS 3
+	A declarative stylesheet language for structured documents
+	
+
+	Github
+	
+
+	
+
+	Git
+	Version Control
+	
+
+	Gmail
+	Mail Service Provider
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+2.4. Project Planning
+
+
+
+
+
+
+
+
+2.5. Project Scheduling
+
+
+
+
+
+
+
+
+2.6. Software Requirement Specification (SRS)
+
+
+
+
+
+
+
+
+2.7. Software Engineering Paradigm applied
+
+
+
+
+
+
+
+
+2.8. Data Model and Diagrams
+
+
+
+
+
+
+
+
+3. SYSTEM DESIGN
+
+
+
+
+3.1. Modularisation details
+3.2. Data integrity and constraints
+3.3. Database design / Procedural Design / Object Oriented Design
+3.4. User Interface Design
+4. CODING
+4.1. Complete Project Coding
+4.2. Comments and Description
+4.3. Standardization of the coding / Code Efficiency
+4.4. Error Handling
+4.5. Parameters calling / passing
+4.6. Validation checks
+4.7. Testing
+4.8. Testing Techniques and Testing strategies used
+4.9. Debugging and Code improvement
+5. SYSTEM SECURITY MEASURES
+5.1. Database / data security
+5.2. Creation of User Profiles and access rights
+6. COST ESTIMATION OF THE PROJECT
+7. REPORTS
+8. PERT CHART / GANTT CHART
+9. FUTURE SCOPE AND FURTHER ENHANCEMENT OF THE PROJECT
+10. BIBLIOGRAPHY
+11. APPENDICES
+12. GLOSSARY

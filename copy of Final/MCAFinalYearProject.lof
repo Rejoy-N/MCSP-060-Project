@@ -1,0 +1,43 @@
+\contentsline {figure}{\numberline {1}{\ignorespaces PSP Process Flow Diagram\relax }}{26}
+\contentsline {figure}{\numberline {2}{\ignorespaces PSP Planning Process Diagram\relax }}{26}
+\contentsline {figure}{\numberline {3}{\ignorespaces Process Flow Diagram\relax }}{31}
+\contentsline {figure}{\numberline {4}{\ignorespaces Ordering Process Flow Diagram\relax }}{32}
+\contentsline {figure}{\numberline {5}{\ignorespaces Shopping Cart Process Flow Diagram\relax }}{33}
+\contentsline {figure}{\numberline {6}{\ignorespaces Shopping Cart Activity Flow Diagram\relax }}{34}
+\contentsline {figure}{\numberline {7}{\ignorespaces Website Component Diagram\relax }}{35}
+\contentsline {figure}{\numberline {8}{\ignorespaces Data Flow Diagram\relax }}{36}
+\contentsline {figure}{\numberline {9}{\ignorespaces Architecture Diagram\relax }}{36}
+\contentsline {figure}{\numberline {10}{\ignorespaces List of Database Tables\relax }}{39}
+\contentsline {figure}{\numberline {11}{\ignorespaces Utility Tables with data Elements\relax }}{39}
+\contentsline {figure}{\numberline {12}{\ignorespaces Data Elements type and size\relax }}{40}
+\contentsline {figure}{\numberline {13}{\ignorespaces Order table\relax }}{40}
+\contentsline {figure}{\numberline {14}{\ignorespaces Product table\relax }}{41}
+\contentsline {figure}{\numberline {15}{\ignorespaces User table\relax }}{41}
+\contentsline {figure}{\numberline {16}{\ignorespaces Orderdetails Field JSON Structure\relax }}{42}
+\contentsline {figure}{\numberline {17}{\ignorespaces Shipdetails Field JSON Structure\relax }}{42}
+\contentsline {figure}{\numberline {18}{\ignorespaces JSON Array View Order\relax }}{43}
+\contentsline {figure}{\numberline {19}{\ignorespaces Order table viewed in SQLite Manager \relax }}{44}
+\contentsline {figure}{\numberline {20}{\ignorespaces Customer Login Screen\relax }}{46}
+\contentsline {figure}{\numberline {21}{\ignorespaces Customer Login Screen - Alert\relax }}{48}
+\contentsline {figure}{\numberline {22}{\ignorespaces Customer Sign-up Screen\relax }}{49}
+\contentsline {figure}{\numberline {23}{\ignorespaces Customer Sign-up Screen Validations\relax }}{51}
+\contentsline {figure}{\numberline {24}{\ignorespaces Customer Login Main View\relax }}{52}
+\contentsline {figure}{\numberline {25}{\ignorespaces Customer Login Main View - Search\relax }}{55}
+\contentsline {figure}{\numberline {26}{\ignorespaces Customer Login Main View - Alert\relax }}{56}
+\contentsline {figure}{\numberline {27}{\ignorespaces Customer Login Main View - Shopping Cart\relax }}{57}
+\contentsline {figure}{\numberline {28}{\ignorespaces Customer Place Order Screen\relax }}{59}
+\contentsline {figure}{\numberline {29}{\ignorespaces Stripe Payment Gateway Submit Form-1\relax }}{61}
+\contentsline {figure}{\numberline {30}{\ignorespaces Stripe Payment Gateway Submit Form-2\relax }}{64}
+\contentsline {figure}{\numberline {31}{\ignorespaces Order Confirmation Screen\relax }}{65}
+\contentsline {figure}{\numberline {32}{\ignorespaces Email Notification in Inbox \relax }}{68}
+\contentsline {figure}{\numberline {33}{\ignorespaces Admin User Main View\relax }}{69}
+\contentsline {figure}{\numberline {34}{\ignorespaces Admin - Manage Products \relax }}{71}
+\contentsline {figure}{\numberline {35}{\ignorespaces Admin - Add Product Form\relax }}{74}
+\contentsline {figure}{\numberline {36}{\ignorespaces Admin - Add Product Form Validations - I\relax }}{77}
+\contentsline {figure}{\numberline {37}{\ignorespaces Admin - Add Product Form Validation -II\relax }}{78}
+\contentsline {figure}{\numberline {38}{\ignorespaces TLS Certificate Details - 1\relax }}{93}
+\contentsline {figure}{\numberline {39}{\ignorespaces TLS Certificate Details - 2\relax }}{94}
+\contentsline {figure}{\numberline {40}{\ignorespaces TLS Certificate Details - 3\relax }}{95}
+\contentsline {figure}{\numberline {41}{\ignorespaces C\textsuperscript {++} Object Size Data\relax }}{98}
+\contentsline {figure}{\numberline {42}{\ignorespaces PSP Process Elements\relax }}{101}
+\contentsline {figure}{\numberline {43}{\ignorespaces PSP Process Elements in the PSP Process\relax }}{102}

@@ -1,0 +1,552 @@
+\documentclass[hidelinks,a4paper]{article}
+\usepackage[bottom=2.5cm]{geometry}
+\usepackage[table]{xcolor}
+\usepackage{graphicx}
+\usepackage{sectsty} %to customise headings
+\usepackage{attachfile}
+\usepackage{navigator}
+%\usepackage{times} %this is for the selection of font
+%\usepackage[english]{babel} %this is for the selection of font
+%\usepackage{Palatino}
+%\usepackage{courier}
+%\usepackage[T1]{fontenc}
+%\renewcommand*\familydefault{\ttdefault} %% Only if the base font of the document is to be typewriter style
+
+\usepackage{fancyhdr}	
+\usepackage[ampersand]{easylist}
+\usepackage{amssymb}
+\usepackage{enumitem}	
+\usepackage{caption} \captionsetup[table]{singlelinecheck=false, margin=1em}
+\usepackage{tabu}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{eso-pic}
+\usepackage{transparent}
+\usepackage{pdfpages}
+
+\usepackage{ltablex}
+\setlength{\LTpre}{0pt}
+\setlength{\LTpost}{-15pt}
+
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{pgfplots, pgfplotstable}
+\usepackage{makecell}
+
+\usetikzlibrary{backgrounds}
+% background color definition from pgfmanual-en-macros.tex
+\definecolor{graphicbackground}{cmyk}{0.04,0.02,0.02,0.04}
+% key to change color
+\pgfkeys{/tikz/.cd,
+	background color/.initial=graphicbackground,
+	background color/.get=\backcol,
+	background color/.store in=\backcol,
+}
+\tikzset{background rectangle/.style={
+		fill=\backcol,
+	},
+	use background/.style={    
+		show background rectangle
+	}
+}
+
+
+	
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{System Design Document}
+\rhead{\textbf { \textsl{JD Capture Application}}}
+\lfoot{\scriptsize{Thrymr Software Pvt. Ltd.\\Contact@thrymr.net \quad Call Us : 040-64550008\\ }}
+% Set the right side of the footer to be the page number
+\cfoot{}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\usepackage{lipsum}% Used for dummy text.
+
+\definecolor{titlepagecolor}{cmyk}{1,.60,0,.40}
+\definecolor{namecolor}{cmyk}{0.4,.2,0.,.10} 
+\definecolor{levelfirst}{cmyk}{0.2,1,0.55,0.70}
+\definecolor{levelSecond}{cmyk}{1,.50,0,.10}
+\definecolor{levelthird}{cmyk}{1,.50,0,.10}
+\definecolor{levelfourth}{cmyk}{1,.50,0,.10}
+\definecolor{levelfifth}{cmyk}{1,.50,0,.10}
+
+\definecolor{tablecell1}{cmyk}{0.07,0.03,0.03,0.07}
+\definecolor{tablecell2}{cmyk}{0.04,0.02,0.02,0.04}
+%-----------------------------------------------------------------
+\begin{document}
+	% ----------------------------------------------------------------
+	\begin{titlepage}
+	\iftrue   % iftrue fr display, iffalse to hide display
+	
+		\newgeometry{left=3.5cm, bottom=2cm} %defines the geometry for the titlepage
+		\pagecolor{titlepagecolor}
+		\noindent
+		\includegraphics[width=6cm]{Allegis1.jpg}\\[1em]
+		\color{white}
+		\makebox[0pt][l]{\rule{1.3\textwidth}{1pt}}
+		\par
+		\noindent
+		%\textcolor{namecolor}{\Huge{\textbf{Proposal for the \\ \\}}}
+		\noindent\textbf{\Huge \textsf{System Design Document\\ \\}} 
+	
+		\noindent\textbf{\Huge \textsf{JD CAPTURE APPLICATION\\ \\}} 
+		\noindent\textsf{October 2015}
+		\vfill
+		\vskip\baselineskip
+		\noindent
+		\includegraphics[width=6.4cm]{Logo.png}\\[1em]
+		{\textsf{Thrymr Software Pvt. Ltd\\}}
+		{\textsf{Center for Innovation and Entrepreneurship\\Vindhya C-4 IIIT-Campus \\ Gachibowli, Hyderabad \\ Telangana State, India\\ \\ \\}}
+		\textcolor{namecolor}{\small{\textbf{Statement of Confidentiality\\} \\\textcolor{namecolor}{\footnotesize{This data shall not be disclosed and shall not be duplicated, used, or disclosed in whole or in part for any purpose. If a contract is awarded to Thrymr Software, as a result of or in connection with the submission of this data, the client or prospective client shall have the right to duplicate, use, or disclose this data to the extent provided in the contract. This restriction does not limit the client’s or prospective client’s right to use the information contained in the data if it is obtained from another source without restriction. The data subject to this restriction is contained in all marked sheets.}}}}\noindent
+		
+		\noindent
+	\fi
+	
+	%\includepdf{TitlePage2.pdf}
+		
+	\end{titlepage}
+	\restoregeometry % restores the geometry
+	\nopagecolor % Use this to restore the color pages to white
+	% ----------------------------------------------------------------
+	%\thispagestyle{empty}
+		
+	\begin{center}
+			
+		\textbf{\Large Version History}
+		\bigskip
+			
+		{
+		\setlength{\extrarowheight}{2pt}
+		
+			
+			\newcolumntype{b}{X}
+			\newcolumntype{s}{>{\hsize=.3\hsize}X}
+			\newcolumntype{t}{>{\hsize=0.9\hsize}X}
+			
+			
+			\begin{tabularx}{\textwidth}{ | >{\ttfamily\raggedright\arraybackslash} s 
+										  | >{\ttfamily\raggedright\arraybackslash} t 
+										  | >{\ttfamily\raggedright\arraybackslash} t  
+										  | >{\ttfamily\raggedright\arraybackslash} t | }
+			
+			\hline
+				
+				{\textbf{\textcolor{black}{Version No \newline}}} & {\textbf{\textcolor{black}{Created / Updated by}}} & \textbf{\textcolor{black}{Created Date}} & 
+				\textbf{\textcolor{black}{Reason}} \\
+				
+				
+			
+				\hline
+				 1.0 & Rejoy Nair & 21\textsuperscript{st} Oct 2015 & First Draft  \\
+			     \hline
+				
+			\end{tabularx}
+		}
+		\end{center}
+		
+		\noindent
+	\newpage
+	
+	\tableofcontents
+	
+	\setcounter{tocdepth}{2}
+	
+	
+	\newpage
+	
+	\clearpage
+	\setcounter{page}{1}
+	\fancyfoot[R]{\thepage}
+	
+	\linespread{1.3}
+	
+	\iffalse
+	\newcommand\BackgroundPic{
+		\put(-3,-0.5){
+			\parbox[b][\paperwidth]{\paperheight }{%
+				\vfill
+				%\centering
+				{\transparent{0.4} \includegraphics[width=\paperheight, keepaspectratio ]{Pagelayout1.jpg}}%
+				\vfill
+			}}
+			\put(0,4){%
+				\transparent{0.4}\textcolor{white}{\rule{\paperwidth}{\paperheight}}
+			}
+			}
+			
+	\AddToShipoutPicture{\BackgroundPic}	
+	\fi	
+	\sectionfont{\color{levelfirst}}
+	
+	\section{Introduction}
+	This application is designed to provide the users of Allegis a mobile application for collecting the Job Description (JD) from the Hiring Managers of their clients. A user having access to the application can create a JD, create templates for oft-repeated JDs, modify the JDs as well as add Hiring Managers to the existing list. This application also allows the user to preview and submit their saved JDs as well as the history of submitted JDs. The submitted JDs data shall be used to build a custom report that also includes a `Search String' which can be mailed across to other internal team members of Allegis / TEK Systems. This document provides the functional as well as technical details of this application. 
+	
+	%\sectionfont{\color{levelfirst}}
+	\section{Audience}
+	This document is intended for the customer and developer organization to understand the system both functionally as well as technically. Also, it may be used to develop the user training content.
+	
+	\section{Functional features} 
+	Below is the list of features the application will support. Each major functionality will be explained in detail in the following sections.
+	
+	\subsectionfont{\color{levelfirst}}
+	\subsection{Functional features for Web Admin Module}
+	\begin{center}
+		
+	\bigskip
+					
+	{
+	\setlength{\extrarowheight}{2pt}
+				
+					
+	\newcolumntype{b}{X}
+	\newcolumntype{s}{>{\hsize=.4\hsize}X}
+	\newcolumntype{t}{>{\hsize=1.3\hsize}X}
+					
+				
+	\begin{tabularx}{\textwidth}{ | >{\ttfamily\raggedright\arraybackslash} s 
+	 | >{\ttfamily\raggedright\arraybackslash} t 
+     | >{\ttfamily\raggedright\arraybackslash} t | }
+						
+	\hline
+						
+	{\textbf{\textcolor{black}{\large {Feature ID} \newline}}} & {\textbf{\textcolor{black}{\large {Feature}}}} & \textbf{\textcolor{black}{\large {Brief Description}}} \\
+						
+	\hline
+	 1.0 & Admin User Login & Admin Users will have to login to use this application  \\
+	\hline
+	 2.0 & Sign Out & User Sign-Out feature  \\ [1em]
+	\hline				
+	 3.0 & User Management & Admin User can Add / View/ Modify/ Remove a Mobile App user or an Admin user using this feature  \\
+	\hline	
+	 4.0 & Client Management & Admin User can Add / View/ Modify/ Remove a Client to/ from the existing list using this feature   \\
+	\hline	
+	 5.0 & Manage Hiring Managers & Admin User can Add / View/ Modify/ Remove a Hiring Manager to/ from the existing list using this feature  \\
+	\hline
+	 6.0 & Role Management & Admin User can Add / View/ Modify/ Remove Roles to/ from the existing list using this feature   \\ 
+	\hline			
+	 7.0 & Manage Skill Repository & Admin User can Add / View/ Modify/ Remove Skills and Sub-Skills to/ from the existing lists using this feature  \\
+	\hline
+	 8.0 & Manage Domain List & Admin User can Add / View/ Modify/ Remove Domains to/ from the existing list using this feature \\
+	\hline
+	 9.0 & Manage Education List & Admin User can Add / View/ Modify/ Remove Domains to/ from the existing list using this feature\\
+	\hline
+	 10.0 & Manage Certifications  & Admin User can Add / View/ Modify/ Remove Certifications to/ from the existing list using this feature \\
+	\hline
+	 11.0 & Manage Value Proposition List & Admin User can Add / View/ Modify/ Remove Value Propositions to/ from the existing list using this feature \\
+	\hline
+	 12.0 & Password Reset & Admin user can reset passwords of mobile app users using this feature \\
+	\hline
+	 13.0 & Manage Account Settings & Admin User can update profile and change account password using this feature \\
+	\hline
+	\end{tabularx} 
+	}
+	\end{center}
+				
+	\noindent
+		
+		
+	\subsection{Functional features for Mobile App}
+	\begin{center}
+			
+	\bigskip
+						
+	{
+	\setlength{\extrarowheight}{2pt}
+					
+						
+	\newcolumntype{b}{X}
+	\newcolumntype{s}{>{\hsize=.4\hsize}X}
+	\newcolumntype{t}{>{\hsize=1.3\hsize}X}
+						
+						
+	\begin{tabularx}{\textwidth}{ | >{\ttfamily\raggedright\arraybackslash} s 
+	  | >{\ttfamily\raggedright\arraybackslash} t 
+	  | >{\ttfamily\raggedright\arraybackslash} t | }
+							
+	\hline
+							
+	{{\textcolor{black}{\large {Feature ID} \newline}}} & {{\textcolor{black}{\large Feature}}} & {\textcolor{black}{\large Brief Description}} \\
+							
+	\hline
+	 1.0 & Landing Screen & Users can get to this screen by launching the mobile app  \\
+	 \hline
+	2.0 & User Registration & Users can register themselves for use of the application by activating their User ID  \\
+	\hline
+	 3.0 & User Login & Users will have to login to use this application  \\
+	\hline
+	4.0 & Contact Support & Users will be able to place a call to the help-desk using this feature  \\
+	\hline	
+	5.0 & Forgot Password & Users will be able to retrieve their passwords using this feature  \\
+	\hline		
+	 6.0 & Sign Out & User log-out feature  \\ [1em]	
+	\hline	
+	7.0 & Capture a JD & Users will be able to capture a Job Description specified by the Hiring Manager  \\
+	\hline		
+	 8.0 & Manage Templates & Users will be able to add a new template or edit or remove an existing template using this feature  \\
+	\hline																
+	9.0 & Preview \& Submit & Users will be able to preview their saved JDs and submit it using this feature  \\
+	\hline							
+	 10.0 & Manage Hiring Manager Details & Users will be able to add, edit or remove Hiring Manager details using this feature  \\
+	\hline
+	11.0 & Select Client & Users will be able to add, edit Client for whom the JD is being created  \\
+	\hline
+	12.0 & Select Hiring Manager & Users will be able to add, edit Hiring Manager for whom the JD is being created  \\
+	\hline	
+	13.0 & Select Role & Users will be able to add, edit Role specified for the JD  \\
+	\hline	
+	14.0 & Select Skill & Users will be able to add, edit Skills and Sub-Skills specified for the JD  \\
+	\hline	
+	15.0 & Select Responsibilities & Users will be able to add, edit responsibilities specified for the JD  \\
+	\hline	
+	16.0 & Select Domain & Users will be able to add, edit domain specified for the JD  \\
+	\hline	
+	17.0 & Select Education & Users will be able to add, edit Education details (Education degrees) specified for the JD  \\
+	\hline	
+	18.0 & Select Certification & Users will be able to add, edit Certification details specified for the JD  \\
+	\hline	
+	19.0 & Select Value Proposition & Users will be able to add, edit Value Propositions specified for the JD  \\
+	\hline		
+	20.0 & Questionnaire & Users will be able to add, edit responses to standard questions that will be a part of every JD  \\
+	\hline
+	21.0 & Select Experience & Users will be able to add, edit the experience specified for the JD  \\
+	\hline	
+	22.0 & Select Rate & Users will be able to add, edit the Pay-scale specified for the JD  \\
+	\hline		
+	23.0 & Save Template & Allows creation of a template  \\ [1em]
+	\hline		
+	24.0 & Save JD & Saves the JD  \\	[1em]
+	\hline	
+	25.0 & View History & Users will be able to view details of submitted JDs  \\	
+	\hline	
+	26.0 & Browse Template & Users will be able to select from a list of available templates   \\	
+	\hline		
+	27.0 & Advanced Search & Users will be able to search for available templates by supplying values for one or a set of attributes   \\	
+	\hline			
+	28.0 & Modify / Edit Template & Users will be able to modify an existing template using this feature  \\	
+	\hline	
+	29.0 & Add Hiring Manager & Users will be able to add a new Hiring Manager to this existing list using this feature  \\	
+	\hline	
+	30.0 & Update Hiring Manager & Users will be able to update / edit Hiring Manager details using this feature  \\	
+	\hline	
+	31.0 & Remove Hiring Manager & Users will be able to Remove Hiring Manager details using this feature  \\	
+	\hline	
+	32.0 & Account Settings & Users will be able to manage their account using this feature  \\	
+	\hline		
+	33.0 & Change Password & Users will be able to change their account password using this feature  \\	
+	\hline
+	34.0 & Update Profile & Users will be able to update their profile using this feature  \\	
+	\hline	
+	35.0 & FAQs & Users will be able to read the listed FAQs regarding the app and using this feature  \\	
+	\hline							
+	\end{tabularx}
+	}
+	\end{center}
+					
+	\noindent
+	\newpage
+						
+	\section{Architectural Model}
+	The application will be designed using Play framework architectural pattern. Presentation layer comprises of HTML, JSON etc. and makes calls to business functionality through Spring Controllers. Business logic will be encapsulated in Business logic layer and all data access will be through underlying Play framework. Model-View-Controller architecture is the underlying architectural model.
+	
+	\bigskip
+	\begin{center}
+	
+	\includegraphics[width=\textwidth,keepaspectratio]{Architecture-grayscale.png}\\[1em]
+	{The Play framework Architectural Model}
+	
+	\end{center}
+	\newpage
+	
+	\section{Tools \& Technologies}
+	The following lists the development infrastructure used in the project
+	
+	\begin{center}
+				
+		\bigskip
+							
+		{
+		\setlength{\extrarowheight}{2pt}
+						
+							
+		\newcolumntype{b}{X}
+		\newcolumntype{s}{>{\hsize=.4\hsize}X}
+		\newcolumntype{t}{>{\hsize=1.3\hsize}X}
+							
+							
+		\begin{tabularx}{\textwidth}{ | >{\ttfamily\raggedright\arraybackslash} s 
+		  | >{\ttfamily\raggedright\arraybackslash} t 
+		  | >{\ttfamily\raggedright\arraybackslash} t | }
+								
+		\hline
+								
+		{\textbf{\textcolor{black}{\large {Sr. No.} \newline}}} & {\textbf{\textcolor{black}{\large {Tools \& Technologies}}}} & \textbf{\textcolor{black}{\large {Description}}} \\
+								
+		\hline
+		1.0 & JBoss Netty & Web Server to develop and deploy the application  \\
+	    \hline
+		2.0 & PostgreSQL 9.4 & Database  \\ [1em]
+	    \hline
+		3.0 & pgAdmin III 1.2.0 & Database  \\  [1em]
+	    \hline	  
+		4.0 & CSS 3.0 & Style Sheets Technology  \\ [1em]
+	    \hline	    
+		5.0 & jQuery 1.11.1 and related plugins & Javascripting  \\ 
+	    \hline	 
+		6.0 & SBT & {Build tool. \newline Play is distributed through a tool called Typesafe Activator. Typesafe Activator provides the build tool (SBT) that Play is built on}  \\ 
+	    \hline	
+		7.0 & DBUnit & To test the data access object  \\ [1em]
+	    \hline	
+		8.0 & Eclipse 4.4 IDE & Development Environment  \\ [1em]
+	    \hline	
+		9.0 & JDK 1.8 & Java Development Kit  \\ [1em]
+	    \hline	
+		10.0 & JUnit 4.4 & Unit Testing Framework  \\ [1em]
+	    \hline	     
+		11.0 & Github & Repository Management Cloud  \\ [1em]
+	    \hline	   
+		12.0 & Play Framework 2.4 & Web \& Mobile Application Development Framework  \\
+	    \hline	  
+		13.0 & git & Version Control System  \\ [1em]
+	    \hline		    
+		14.0 & Android Studio & Integrated development environment (IDE) for developing for the Android platform System  \\ 
+	    \hline		       	           								
+		\end{tabularx}
+		}
+		\end{center}
+						
+		\noindent
+	
+
+	
+	\subsection{Browser Compatibility}
+	\ListProperties(Hide=100, Hang=true, Progressive=6ex, Space=0.8em,Space*=0.8em, Style*=$\bullet$, Style2*=$\bullet$ ,Style3*=$\bullet$ ,Style4*=\tiny$\blacksquare$ )
+		
+		
+		\begin{easylist}
+			& \thinspace IE 10+
+			& \thinspace Firefox
+		\end{easylist}
+		
+			\newpage
+			
+		\section{Low Level Design }
+		
+		\subsection{User Interface Design }
+		
+		\subsubsectionfont{\color{levelfirst}}
+		\subsubsection{User Interface Design - Admin Module }
+		
+
+		UI will be developed as modular as possible so that future changes in requirements can be easily incorporated. CSS 3.0 style sheets will be developed to provide externalized and templatized look and feel. Un-obtrusive javascript will be used through the site so that future changes in the requirements can be done very easily without breaking existing functionality
+		
+		\subsubsection{User Interface Design - Mobile App }
+		Since the mobile platform offers a much smaller screen, and thus less space to accommodate the	important elements, the main view will contain only the most important options and information related to the current page.  Only basic information of the user is included in the profile page. The most important thing is that these	screens should be clickable and easy to access \\
+		
+		\begin{center}	
+		\attachfile[icon=Paperclip ]{Allegis1.pdf} \\
+		Preliminary Mockup Screens \\
+		{[\slshape{click on icon to open}}]
+		\end{center}	
+		\subsection{Data Model Design }
+		
+		\begin{center}		
+		{
+		\setlength{\extrarowheight}{2pt}
+								
+									
+		\newcolumntype{b}{X}
+		\newcolumntype{s}{>{\hsize=.5\hsize}X}
+		\newcolumntype{t}{>{\hsize=1.05\hsize}X}
+									
+		%\renewcommand\thetable{1} 
+
+		\captionof*{table}{ Your caption here} \label{table:1}
+									
+		\begin{tabularx}{\textwidth}{ | >{\ttfamily\raggedright\arraybackslash} s 
+		| >{\ttfamily\raggedright\arraybackslash} s 
+	    | >{\ttfamily\raggedright\arraybackslash} s 
+	    | >{\ttfamily\raggedright\arraybackslash} s 
+		| >{\ttfamily\raggedright\arraybackslash} s
+		| >{\ttfamily\raggedright\arraybackslash} s
+		|}
+										
+		\hline
+										
+		{\textbf{\textcolor{black}{\large Column\_Id \newline}}} & {\textbf{\textcolor{black}{\large Column\_Identifier}}} & \textbf{\textcolor{black}{\large Description}} &  
+		\textbf{\textcolor{black}{\large Datatype}} & 
+		\textbf{\textcolor{black}{\large Datalength}}\\
+										
+		\hline
+		1.0 & Rejoy Nair & 21\textsuperscript{st} Oct 2015 & x & y  \\
+		\hline
+										
+		\end{tabularx}
+		}
+		\end{center}
+								
+		\noindent
+		
+		
+		\begin{center}		
+		{
+		\setlength{\extrarowheight}{2pt}
+								
+									
+		\newcolumntype{b}{X}
+		\newcolumntype{s}{>{\hsize=.5\hsize}X}
+		\newcolumntype{t}{>{\hsize=1.05\hsize}X}
+									
+		%\renewcommand\thetable{1} 
+		\captionof*{table}{ Your caption here} \label{table:1}
+									
+		\begin{tabularx}{\textwidth}{ | >{\ttfamily\raggedright\arraybackslash} s 
+		  | >{\ttfamily\raggedright\arraybackslash} s 
+		  | >{\ttfamily\raggedright\arraybackslash} s 
+		  | >{\ttfamily\raggedright\arraybackslash} s 
+		  | >{\ttfamily\raggedright\arraybackslash} s
+		  | >{\ttfamily\raggedright\arraybackslash} s
+		  |}
+										
+	   	\hline
+										
+		{\textbf{\textcolor{black}{\large Column\_Id \newline}}} & {\textbf{\textcolor{black}{\large Column\_Identifier}}} & \textbf{\textcolor{black}{\large Description}} &  
+		\textbf{\textcolor{black}{\large Datatype}} & 
+		\textbf{\textcolor{black}{\large Datalength}}\\
+										
+		\hline
+		 1.0 & Rejoy Nair & 21\textsuperscript{st} Oct 2015 & x & y  \\
+		 \hline
+										
+		\end{tabularx}
+		}
+		\end{center}
+								
+		\noindent
+	\newpage	
+	\section{Deployment Model}
+	Entire application will be deployed on JBoss Netty server with Apache Web server as the web front end server. Both are open-source servers and the installation will be done by the developer organization. PostgreSQL database will be generated by the scripts provided by the team. Also the team will provide the build scripts that will build, test and deploy the application on the production environment. SBT will be used to develop the build scripts. As the user community increases, we can load balance the user requests using apache mod-jk software load balancer configuration and it is again open source. 
+
+	\section{Testing \& Debugging}
+	\subsection{Logging}
+	All system critical events will be logged using Log4j logging framework that Play makes use of. Various priority level messages will be logged and can later be used for debugging in case of issues. Also, with the user guide, we provide you a list of possible issues and solutions for easier troubleshooting at a later time
+	\subsection{Unit Testing}
+	Each use case/functionality will be thoroughly tested using Plat Framework's built-in testing functionality that makes use of spec2 specification. Performance/load testing is not required for this project.
+	\subsection{Integration Testing}
+	Once each module within the system is integrated, we will run the integration test cases generated by us, and fix the issues in case of any.
+	\subsection{System Testing}
+	We will perform system testing for the entire application using smoke test and monkey test techniques. Once these tests are OK, we will test the system functionality end to end manually and provide you the system test cases along with the source code and documentation.
+				
+\end{document}	
+	
+
+
+
+
+
+
+
+
+

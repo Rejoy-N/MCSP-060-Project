@@ -1,0 +1,105 @@
+{{define "Showproduct"}}
+{{template "header" .}}
+
+<div class="navbar navbar-light navbar-fixed-top" style="background-color: #e3f2fd;" >
+	<div class="container-fluid">
+		<div class = "navbar-header">
+			<a href="#" class="navbar-brand">137132696</a>
+		</div>
+		<ul class="nav navbar-nav">
+			<li><form action="/manageproduct" method="post"><button type="submit" class="btn btn-link navbar-btn navbar-link"><span class="glyphicon glyphicon-th-list"></span> Manage Products</button></form></li>
+			<li><form action="/admin" method="post"><button type="submit" class="btn btn-link navbar-btn navbar-link"><span class="glyphicon glyphicon-th-list"></span> View Orders</button></form></li>
+		</ul>
+		<ul class="nav navbar-nav navbar-right">
+		<li><form action="/admin" method="post"><button type="submit" class="btn btn-link navbar-btn navbar-link"><span class="glyphicon glyphicon-hand-left"></span> Back</button></form></li>							
+		<li><form action="/logout" method="post"><button type="submit" class="btn btn-link navbar-btn navbar-link"><span class="glyphicon glyphicon-log-out"></span> Log off</button></form></li>				
+		</ul>	
+	</div>
+</div>	
+
+<p><br/></p>
+<p><br/></p>
+<p><br/></p>
+
+
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-10">
+			<div class="panel panel-info">
+				<div class="panel-heading">Update Product Form </div>
+					<div class="container-fluid" style="margin-top:20px;">
+						<form  method="POST" action="/showproduct" enctype="multipart/form-data" runat="server">
+							<label class="form-control-label" for="productName" >Product Name</label>
+							{{with .Errors.pname}}
+							<div class="alert alert-danger">
+								{{.}}
+							</div>
+							{{end}}
+							<input class="form-control" type="text" id="productName" name="productName" value="{{.Pname}}">
+							<label class="form-control-label" for="quantity" >Quantity</label>
+							{{with .Errors.quantity}}
+							<div class="alert alert-danger">
+								{{.}}
+							</div>
+							{{end}}
+							<input class="form-control" type="text" id="quantity" name="quantity" value="{{.Quantity}}"  >
+							<label class="form-control-label" for="price"  >Price</label>
+							{{with .Errors.price}}
+							<div class="alert alert-danger">
+								{{.}}
+							</div>
+							{{end}}
+							<input class="form-control" type="text" id="price" name="price" value="{{.Price}}">
+							<div class = "jumbotron">
+								<!-- <h1 class = "test-center" style="font-size:40;color:gray;"> Upload Image of the Product</h1> -->
+								<img name="pic" id="pic" src="/files/{{.Image}}"  alt="Upload Image of the Product" style="width:100%;font-size:40;color:gray;"  />
+								<input type="hidden" name ="imgname" id="imgname" value="{{.Image}}">
+							</div>	
+							<label class="form-control-label" for="productimage"></label>
+							{{with .Errors.image}}
+							<div class="alert alert-danger">
+								{{.}}
+							</div>
+							{{end}}		
+		
+							<!-- <input type="file" name="productimage" id = "productimage" multiple="multiple" class = "btn btn-danger" style="margin-bottom:20px;"> -->
+							
+							<input type="file" name="productimage" id = "productimage" multiple="multiple" class = "btn btn-danger" value="{{.Image}}" >
+
+							<input type="submit" name="submit" value="Submit" class = "btn btn-info">
+
+						</form>
+					</div>
+					
+				<div class="panel footer"></div>
+			</div>
+		</div>
+		<div class="col-md-1"></div>
+	</div>
+</div>	
+
+
+
+<script>
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+            
+        reader.onload = function (e) {
+            $('#pic').attr('src', e.target.result);
+        }
+            
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+    
+$("#productimage").change(function(){
+    readURL(this);
+});
+</script>
+
+
+{{template "footer" .}}
+{{end}}

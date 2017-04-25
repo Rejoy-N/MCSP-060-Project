@@ -1,0 +1,123 @@
+{{define "Payment"}}
+{{template "header" .}}
+
+<!-- <div id="load_screen" style="position:absolute; width:100%; text-align:center;"><div id="loading"><image src="/files/ajax-loader.gif" border="0"></image> <br> Please wait while we process your request....</div></div> -->
+
+<div class="navbar navbar-light navrbar-fixed-top" style="background-color: #e3f2fd;">
+	<div class="container-fluid">
+		<div class = "navbar-header">
+			<a href="#" class="navbar-brand">137132696</a>
+		</div>	
+		<ul class="nav navbar-nav"></ul>
+		<ul class="nav navbar-nav navbar-right">
+		<li><form action="/example" method="post"><button type="submit" class="btn btn-link navbar-btn navbar-link"><span class="glyphicon glyphicon-home"></span> Home</button></form></li>				
+		<li><form action="/logout" method="post"><button type="submit" class="btn btn-link navbar-btn navbar-link"><span class="glyphicon glyphicon-log-out"></span> Log off</button></form></li>	
+		</ul>
+		</div>
+	</div>
+</div>	
+
+
+<div class="container">
+	<div class="col-md-1"></div>
+	<div class="col-md-10">
+		<div class="panel panel-info">
+			<div class="panel-heading"><b>Order Invoice &#47; Payment Receipt</b></div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-md-3"><b>Order ID:</b></div>
+						<div class="col-md-7">{{.ouid}}</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3">&nbsp;</div>
+						<div class="col-md-7">&nbsp;</div>
+					</div>							
+					<div class="row">
+						<div class="col-md-3"><b>Shipping Address</b></div>
+						<div class="col-md-7">{{.shipdetail.shaddressname}}</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3"></div>
+						<div class="col-md-7">{{.shipdetail.shaddressline}}</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3"></div>
+						<div class="col-md-7">{{.shipdetail.shaddresscity}}</div>
+					</div>	
+					<div class="row">
+						<div class="col-md-3"></div>
+						<div class="col-md-7">{{.shipdetail.shaddresszip}}</div>
+					</div>	
+					<div class="row">
+						<div class="col-md-3"></div>
+						<div class="col-md-7">{{.shipdetail.shaddresscountry}}</div>
+					</div>		
+					<div class="row">
+						<div class="col-md-3">&nbsp;</div>
+						<div class="col-md-7">&nbsp;</div>
+					</div>																									
+					<div class="row">
+						<div class="col-md-3"><b>Email Address:</b></div>
+						<div class="col-md-7">{{.shipdetail.eladdress}}</div>
+					</div>	
+					<div class="row">
+						<div class="col-md-3">&nbsp;</div>
+						<div class="col-md-7">&nbsp;</div>
+					</div>	
+					<div class="row">
+						<div class="col-md-3"><b>Ordered Items:</b></div>
+						<div class="col-md-7"></div>
+					</div>
+					<div class="row">
+						<div class="col-md-3">&nbsp;</div>
+						<div class="col-md-7">&nbsp;</div>
+					</div>					
+					{{ with .orderdetail}}
+					{{range .}}
+					<div class="row">
+						<div class="col-md-3"><img src="/files/{{.image}}" style="width:50px;height:50px;"></div>
+						<div class="col-md-7"> </div>
+							<div class="col-md-3"><b>Product: </b>{{.name}} </div>
+							<div class="col-md-2"><b>Qty: </b>{{.count}}</div>
+							<div class="col-md-2"><b>Price: </b>&#8377; {{.price}}</div>
+					</div>																										
+					{{end}}
+					{{end}}	
+					<div class="row">
+						<div class="col-md-3">&nbsp;</div>
+						<div class="col-md-7">&nbsp;</div>
+					</div>					
+					<div class="row">
+						<div class="col-md-3"><b>Total Amount:</b></div>
+						<div class="col-md-7">&#8377; {{.chargedamount}}</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3">&nbsp;</div>
+						<div class="col-md-7">&nbsp;</div>
+					</div>					
+					<div class="row">
+						<div class="col-md-3"><b>Order DateTime:</b></div>
+						<div class="col-md-7">{{.timestamp}}</div>
+					</div>																												
+				</div>
+				<div class="panel-footer"></div>
+		</div>		
+		</div>
+	<div class="col-md-1"></div>
+</div>	
+
+
+<!--
+<script>
+		window.addEventListener("load", function() {
+				var load_screen = document.getElementByID("load_screen");
+				document.body.removeChild(load_screen);
+			}
+		);	
+</script>
+-->
+
+{{template "footer" .}}
+{{end}}
+
+

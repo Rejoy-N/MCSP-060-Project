@@ -1,0 +1,44 @@
+\contentsline {section}{\numberline {1}\MakeUppercase {Introduction / Objectives}}{1}
+\contentsline {subsection}{\numberline {1.1}Background}{1}
+\contentsline {subsection}{\numberline {1.2}Purpose \& Motivation}{2}
+\contentsline {subsection}{\numberline {1.3}Objectives}{2}
+\contentsline {subsection}{\numberline {1.4}Project Category}{3}
+\contentsline {section}{\numberline {2}\MakeUppercase {System Analysis}}{4}
+\contentsline {subsection}{\numberline {2.1}Identification of Need}{4}
+\contentsline {subsection}{\numberline {2.2}Preliminary Investigation}{4}
+\contentsline {subsection}{\numberline {2.3}Feasibility Study}{4}
+\contentsline {subsection}{\numberline {2.4}Project Planning}{7}
+\contentsline {subsection}{\numberline {2.5}Project Scheduling}{8}
+\contentsline {subsection}{\numberline {2.6}\Gls {Software Requirement Specifications}}{10}
+\contentsline {subsubsection}{\numberline {2.6.1}Problem Definition}{10}
+\contentsline {subsubsection}{\numberline {2.6.2}User Module}{10}
+\contentsline {subsubsection}{\numberline {2.6.3}User Module - Registration}{10}
+\contentsline {subsubsection}{\numberline {2.6.4}User Module - Sign-On}{11}
+\contentsline {subsubsection}{\numberline {2.6.5}User Module - Search Products}{12}
+\contentsline {subsubsection}{\numberline {2.6.6}Shopping Cart}{13}
+\contentsline {subsubsection}{\numberline {2.6.7}Place Order}{15}
+\contentsline {subsubsection}{\numberline {2.6.8}User Module - Make Payment}{17}
+\contentsline {subsubsection}{\numberline {2.6.9}User Module - Invoice}{19}
+\contentsline {subsubsection}{\numberline {2.6.10}User Module - Notifications}{20}
+\contentsline {subsubsection}{\numberline {2.6.11}Admin Module}{21}
+\contentsline {subsubsection}{\numberline {2.6.12}Admin Module - View Order data}{21}
+\contentsline {subsubsection}{\numberline {2.6.13}Admin Module - Manage Products}{22}
+\contentsline {subsubsection}{\numberline {2.6.14}Admin Module - Add Product}{23}
+\contentsline {subsubsection}{\numberline {2.6.15}Reports}{25}
+\contentsline {subsection}{\numberline {2.7}Software Engineering Paradigm applied}{25}
+\contentsline {subsubsection}{\numberline {2.7.1}The Personal Software Process (PSP)}{25}
+\contentsline {subsubsection}{\numberline {2.7.2}Notes on the Go Programming Language Design \textsuperscript {[4]}}{27}
+\contentsline {subsection}{\numberline {2.8}Data Models \& Diagrams}{31}
+\contentsline {section}{\numberline {3}\MakeUppercase {System Design}}{37}
+\contentsline {subsection}{\numberline {3.1}Modularization Details}{37}
+\contentsline {subsection}{\numberline {3.2}Database Design}{39}
+\contentsline {subsection}{\numberline {3.3}User Interface Design}{45}
+\contentsline {section}{\numberline {4}\MakeUppercase {Coding}}{79}
+\contentsline {section}{\numberline {5}\MakeUppercase {System Security Measures}}{93}
+\contentsline {section}{\numberline {6}\MakeUppercase {Cost Estimation of the Project}}{98}
+\contentsline {section}{\numberline {7}\MakeUppercase {Reports}}{100}
+\contentsline {section}{\numberline {8}\MakeUppercase {Project Chart, Gantt Chart}}{101}
+\contentsline {section}{\numberline {9}\MakeUppercase {Future Scope and further enhancement }}{104}
+\contentsline {section}{\numberline {10}\MakeUppercase {Bibliography}}{105}
+\contentsline {section}{\numberline {11}\MakeUppercase {Appendices}}{106}
+\contentsline {section}{\numberline {12}\MakeUppercase {Glossary}}{109}

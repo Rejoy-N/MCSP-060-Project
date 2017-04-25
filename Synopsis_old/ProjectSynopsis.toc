@@ -1,0 +1,32 @@
+\contentsline {section}{\numberline {1}Introduction}{1}
+\contentsline {subsection}{\numberline {1.1}Background}{2}
+\contentsline {subsubsection}{\numberline {1.1.1}Purpose and Motivation}{2}
+\contentsline {subsection}{\numberline {1.2}Objectives}{3}
+\contentsline {section}{\numberline {2}Project Category}{4}
+\contentsline {section}{\numberline {3}Tools/Platform, Hardware \& Software Requirements}{4}
+\contentsline {section}{\numberline {4}Requirements and Analysis}{7}
+\contentsline {subsection}{\numberline {4.1}Problem Definition}{7}
+\contentsline {subsection}{\numberline {4.2}Admin Module}{7}
+\contentsline {subsubsection}{\numberline {4.2.1}Manage Products}{7}
+\contentsline {subsubsection}{\numberline {4.2.2}Reports}{7}
+\contentsline {subsection}{\numberline {4.3}User Module}{7}
+\contentsline {subsubsection}{\numberline {4.3.1}Self-Registration}{7}
+\contentsline {subsubsection}{\numberline {4.3.2}Sign-On}{7}
+\contentsline {subsubsection}{\numberline {4.3.3}Search Products}{7}
+\contentsline {subsubsection}{\numberline {4.3.4}Shopping Cart}{7}
+\contentsline {subsubsection}{\numberline {4.3.5}Place Order}{7}
+\contentsline {subsubsection}{\numberline {4.3.6}Make Payment}{8}
+\contentsline {subsubsection}{\numberline {4.3.7}Invoice}{8}
+\contentsline {subsubsection}{\numberline {4.3.8}Notifications}{8}
+\contentsline {subsection}{\numberline {4.4}Planning and Scheduling}{9}
+\contentsline {subsection}{\numberline {4.5}Preliminary Product Description}{10}
+\contentsline {subsection}{\numberline {4.6}Conceptual Models}{10}
+\contentsline {section}{\numberline {5}Scope of the Solution}{12}
+\contentsline {subsubsection}{\numberline {5.0.1}Purpose}{12}
+\contentsline {subsubsection}{\numberline {5.0.2}Scope}{12}
+\contentsline {section}{\numberline {6}Analysis}{12}
+\contentsline {section}{\numberline {7}Structure}{12}
+\contentsline {section}{\numberline {8}Implementation of Security Mechanisms}{12}
+\contentsline {section}{\numberline {9}Future Scope and further enhancement of Project}{12}
+\contentsline {section}{\numberline {10}Bibliography}{12}
+\contentsline {section}{\numberline {11}References}{12}
